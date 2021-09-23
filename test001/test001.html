@@ -1,13 +1,14 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>ParticleJS - デモ</title>
+  <title>ParticleJS - 色変化デモ</title>
 
   <!-- CreateJSのライブラリー読み込み -->
   <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
   <!-- パーティクルシステムのライブラリー読み込み -->
   <script src="../libs/particlejs.min.js"></script>
+
   <!-- JS -->
   <script>
     var particleSystem = null;
@@ -29,46 +30,44 @@
         // パラメーターJSONのコピー＆ペースト ここから--
         {
           "bgColor": "#00000",
-          "width": 838,
-          "height": 607,
-          "emitFrequency": "38",
-          "startX": 480,
-          "startXVariance": "570",
-          "startY": 304,
-          "startYVariance": "98",
+          "width": 960,
+          "height": 540,
+          "emitFrequency": "100",
+          "startX": 482,
+          "startXVariance": 960,
+          "startY": 396,
+          "startYVariance": "222",
           "initialDirection": "0",
-          "initialDirectionVariance": "0",
-          "initialSpeed": "0",
-          "initialSpeedVariance": "0",
-          "friction": "0",
-          "accelerationSpeed": "0",
-          "accelerationDirection": "0",
-          "startScale": "0.98",
-          "startScaleVariance": "1",
-          "finishScale": "0.07",
-          "finishScaleVariance": "0.23",
-          "lifeSpan": "27",
-          "lifeSpanVariance": "93",
+          "initialDirectionVariance": "360",
+          "initialSpeed": "2",
+          "initialSpeedVariance": "3.7",
+          "friction": "0.038",
+          "accelerationSpeed": "0.13",
+          "accelerationDirection": "273.3",
+          "startScale": 1,
+          "startScaleVariance": 0.79,
+          "finishScale": "0",
+          "finishScaleVariance": "0",
+          "lifeSpan": "50",
+          "lifeSpanVariance": "196",
           "startAlpha": "1",
           "startAlphaVariance": "0",
-          "finishAlpha": "0.34",
+          "finishAlpha": "0.35",
           "finishAlphaVariance": 0.5,
           "shapeIdList": [
             "blur_circle",
-            "kirakira2",
-            "kirakira",
-            "star"
+            "circle"
           ],
           "startColor": {
-            "hue": "88",
-            "hueVariance": "99",
-            "saturation": "76",
-            "saturationVariance": "0",
-            "luminance": "77",
-            "luminanceVariance": "46"
+            "hue": 222,
+            "hueVariance": "55",
+            "saturation": "71",
+            "saturationVariance": "78",
+            "luminance": "83",
+            "luminanceVariance": "16"
           },
           "blendMode": true,
-          "alphaCurveType": "0"
+          "alphaCurveType": "1"
         }
         // パラメーターJSONのコピー＆ペースト ここまで---
       );
@@ -82,12 +81,6 @@
     });
 
     function handleTick() {
-      // 時間経過によって色相の基準値を変化させる
-      particleSystem.startColor.hue += 2;
-      if (particleSystem.startColor.hue >= 360) {
-        particleSystem.startColor.hue = 0;
-      }
-
       // パーティクルの発生・更新
       particleSystem.update();
 
@@ -119,6 +112,5 @@
 </head>
 <body>
 <canvas width="960" height="540" id="myCanvas"></canvas>
-  <div>aaa</div>
 </body>
 </html>
